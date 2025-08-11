@@ -11,7 +11,7 @@
         "@tsconfig/bun": "^1.0.8",
         "@types/bun": "latest",
         "@types/node-ipc": "^9.2.3",
-        "typescript": "^5",
+        "typescript": "^5.9.2",
       },
     },
   },

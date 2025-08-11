@@ -1,10 +1,12 @@
 {
   "name": "ipc-client",
   "version": "0.0.1",
-  "module": "src/index.ts",
+  "module": "dist/index.js",
   "type": "module",
+  "files": ["dist/**/*"],
   "private": true,
   "scripts": {
+    "build": "bunx tsc",
     "lint": "bunx biome check --write src/"
   },
   "devDependencies": {
@@ -12,7 +14,7 @@
     "@tsconfig/bun": "^1.0.8",
     "@types/bun": "latest",
     "@types/node-ipc": "^9.2.3",
-    "typescript": "^5"
+    "typescript": "^5.9.2"
   },
   "dependencies": {
     "node-ipc": "npm:@achrinza/node-ipc@^10.1.11"

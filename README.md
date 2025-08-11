@@ -17,6 +17,16 @@ bun install github:pygmyapp/ipc-client
 - Clone this repository
 - Install dependencies with `bun install`
 
+## Build
+
+```sh
+bun run build
+```
+
+## Scripts
+
+- `bun run lint`: runs Biome's linting, applies safe fixes, suggests fixes to errors, and auto-organizes imports
+
 ## Licence
 Copyright (c) 2025 Pygmy & contributors  
 All code & assets are licensed under GNU GPL v3 unless stated otherwise.  
