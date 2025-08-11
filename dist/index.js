@@ -27,7 +27,7 @@ export default class IPC extends EventEmitter {
         this.name = name;
         this.ready = false;
         this.ipc = IPCModule;
-        this.ipc.config.appspace = 'hop.';
+        this.ipc.config.appspace = 'pygmy.';
         this.ipc.config.id = name;
         this.ipc.config.retry = 2500;
         this.ipc.config.maxRetries = 5;
