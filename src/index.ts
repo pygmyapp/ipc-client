@@ -1,10 +1,10 @@
-import EventEmitter from 'node:events';
 import IPCModule from 'node-ipc';
+import { EventEmitter } from 'tseep';
 
 export interface IPCMessage {
   from: string;
   to: string;
-  payload: any;
+  payload: unknown;
 }
 
 /**
@@ -25,7 +25,11 @@ export interface IPCMessage {
  *   console.log(`Message:`, message);
  * });
  */
-export default class IPC extends EventEmitter {
+export default class IPC extends EventEmitter<{
+  connect: () => void;
+  disconnect: () => void;
+  message: (message: IPCMessage) => void;
+}> {
   name: string;
   ready: boolean;
   ipc: typeof IPCModule;
@@ -70,7 +74,7 @@ export default class IPC extends EventEmitter {
    * @param to Who to send the message to
    * @param data JSON data to send to the process
    */
-  send(to: string, data: any) {
+  send(to: string, data: unknown) {
     if (!this.ready) return;
 
     const message: IPCMessage = {
@@ -102,7 +106,7 @@ export default class IPC extends EventEmitter {
     const message: IPCMessage = {
       from: raw.from,
       to: raw.to,
-      payload: JSON.parse(raw.payload)
+      payload: JSON.parse(raw.payload as string)
     };
 
     this.emit('message', message);

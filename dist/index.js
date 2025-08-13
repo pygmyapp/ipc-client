@@ -1,5 +1,5 @@
-import EventEmitter from 'node:events';
 import IPCModule from 'node-ipc';
+import { EventEmitter } from 'tseep';
 /**
  * Handles Inter-Process Communication (IPC) via. server/socket
  *
